@@ -1,0 +1,67 @@
+openapi: 3.1.0
+info:
+  title: Google Drive Upload File
+  description: Carica un file in una cartella specifica su Google Drive.
+  version: 1.0.0
+servers:
+  - url: https://www.googleapis.com
+    description: Google Drive API server
+paths:
+  /upload/drive/v3/files:
+    post:
+      operationId: uploadFileToDrive
+      summary: Carica un file in una cartella specifica su Google Drive.
+      description: |
+        Carica un file utilizzando l'upload multipart e lo inserisce nella cartella specificata tramite l'ID.
+        Richiede autorizzazione OAuth con lo scope `https://www.googleapis.com/auth/drive.file`.
+      parameters:
+        - name: uploadType
+          in: query
+          required: true
+          schema:
+            type: string
+            enum: [multipart]
+          example: multipart
+      requestBody:
+        required: true
+        content:
+          multipart/related:
+            schema:
+              type: object
+              properties:
+                metadata:
+                  type: object
+                  description: Metadati del file, inclusi il nome e l'ID della cartella padre.
+                  properties:
+                    name:
+                      type: string
+                      description: Nome del file su Google Drive.
+                    parents:
+                      type: array
+                      description: Lista con l'ID della cartella di destinazione.
+                      items:
+                        type: string
+                  required: [name, parents]
+                file:
+                  type: string
+                  format: binary
+                  description: Il contenuto del file da caricare.
+      responses:
+        '200':
+          description: File caricato con successo.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: ID del file caricato.
+                  name:
+                    type: string
+                  mimeType:
+                    type: string
+        '401':
+          description: Non autorizzato. Controlla i token OAuth.
+        '400':
+          description: Richiesta errata. Verifica i parametri inviati.
