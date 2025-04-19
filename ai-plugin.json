@@ -1,0 +1,24 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Drive Uploader",
+  "name_for_model": "driveUploader",
+  "description_for_human": "Carica file in Google Drive in una cartella specifica.",
+  "description_for_model": "Usa questa action per caricare file in Google Drive specificando l'ID della cartella.",
+  "auth": {
+    "type": "oauth",
+    "client_url": "https://accounts.google.com/o/oauth2/v2/auth",
+    "authorization_url": "https://accounts.google.com/o/oauth2/v2/auth",
+    "token_url": "https://oauth2.googleapis.com/token",
+    "scope": "https://www.googleapis.com/auth/drive.file",
+    "authorization_content_type": "application/x-www-form-urlencoded",
+    "client_id": "1002282348022-75k5tbnckdla8esa7iskek1bum5no2aa.apps.googleusercontent.com",
+    "client_secret": "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"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://fabrossj.github.io/gpt_action/openapi.yaml"
+  },
+  "logo_url": "https://fabrossj.github.io/gpt_action/logo.png",
+  "contact_email": "fabrossj@email.com",
+  "legal_info_url": "https://fabrossj.github.io/gpt_action/legal"
+}
