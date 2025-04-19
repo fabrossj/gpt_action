@@ -14,9 +14,9 @@
     "client_id": "1002282348022-75k5tbnckdla8esa7iskek1bum5no2aa.apps.googleusercontent.com",
     "client_secret": "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"
   },
-  "api": {
-    "type": "openapi",
-    "url": "https://fabrossj.github.io/gpt_action/openapi.yaml"
+ "api": {
+  "type": "openapi",
+  "url": "https://raw.githubusercontent.com/fabrossj/gpt_action/main/openapi.yaml"
   },
   "logo_url": "https://fabrossj.github.io/gpt_action/logo.png",
   "contact_email": "fabrossj@gmail.com",
